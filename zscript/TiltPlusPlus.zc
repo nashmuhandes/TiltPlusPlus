@@ -76,8 +76,9 @@ class Z_TiltMe : CustomInventory
 		return Owner.GetCameraHeight() <= (Owner.player.mo.ViewHeight / 2);
 	}
 
-	double GetVelocity (void)
+	double GetVelocity (bool xyOnly = false)
 	{
+		if (xyOnly) return Owner.Vel.XY.Length();
 		return Owner.Vel.Length();
 	}
 
