@@ -1,4 +1,4 @@
-// Copyright 2017-2019 Nash Muhandes
+// Copyright 2017-2020 Nash Muhandes
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -46,6 +46,18 @@ class TiltPlusPlusHandler : EventHandler
 
 class Z_TiltMe : CustomInventory
 {
+	double strafeInput;
+	double moveTiltOsc, underwaterTiltOsc;
+	double deathTiltOsc;
+	double deathTiltAngle;
+	double lastRoll;
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
 	Default
 	{
 		Inventory.MaxAmount 1;
@@ -54,11 +66,21 @@ class Z_TiltMe : CustomInventory
 		+INVENTORY.AUTOACTIVATE
 	}
 
-	double strafeInput;
-	double moveTiltOsc, underwaterTiltOsc;
-	double deathTiltOsc;
-	double deathTiltAngle;
-	double lastRoll;
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	override void Tick(void)
+	{
+		if (Owner && Owner is "PlayerPawn")
+		{
+			Tilt_CalcViewRoll();
+		}
+
+		Super.Tick();
+	}
 
 	//===========================================================================
 	//
@@ -97,6 +119,7 @@ class Z_TiltMe : CustomInventory
 	//
 	//
 	//===========================================================================
+
 	void Tilt_CalcViewRoll(void)
 	{
 		// CVARS ///////////////////////////////////////////////////////////////
@@ -271,21 +294,12 @@ class Z_TiltMe : CustomInventory
 		Owner.A_SetRoll((Owner.Roll + lastRoll) * 0.5, SPF_INTERPOLATE);
 	}
 
-	override void Tick(void)
-	{
-		if (Owner && Owner is "PlayerPawn")
-		{
-			Tilt_CalcViewRoll();
-		}
-
-		Super.Tick();
-	}
-
 	//===========================================================================
 	//
 	//
 	//
 	//===========================================================================
+
 	States
 	{
 	Use:
