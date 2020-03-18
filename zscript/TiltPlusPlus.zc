@@ -123,26 +123,26 @@ class Z_TiltMe : CustomInventory
 	void Tilt_CalcViewRoll(void)
 	{
 		// CVARS ///////////////////////////////////////////////////////////////
-		bool strafeTiltEnabled = sv_strafetilt;
-		bool moveTiltEnabled = sv_movetilt;
-		bool turnTiltEnabled = sv_turntilt;
-		bool underwaterTiltEnabled = sv_underwatertilt;
-		bool deathTiltEnabled = sv_deathtilt;
+		bool strafeTiltEnabled = tiltplusplus_strafetilt;
+		bool moveTiltEnabled = tiltplusplus_movetilt;
+		bool turnTiltEnabled = tiltplusplus_turntilt;
+		bool underwaterTiltEnabled = tiltplusplus_underwatertilt;
+		bool deathTiltEnabled = tiltplusplus_deathtilt;
 
-		double strafeTiltSpeed = sv_strafetiltspeed;
-		double strafeTiltAngle = sv_strafetiltangle;
-		bool strafeTiltReversed = sv_strafetiltinvert;
+		double strafeTiltSpeed = tiltplusplus_strafetiltspeed;
+		double strafeTiltAngle = tiltplusplus_strafetiltangle;
+		bool strafeTiltReversed = tiltplusplus_strafetiltinvert;
 
-		double moveTiltScalar = sv_movetiltscalar;
-		double moveTiltAngle = sv_movetiltangle;
-		double moveTiltSpeed = sv_movetiltspeed;
+		double moveTiltScalar = tiltplusplus_movetiltscalar;
+		double moveTiltAngle = tiltplusplus_movetiltangle;
+		double moveTiltSpeed = tiltplusplus_movetiltspeed;
 
-		double turnTiltScalar = sv_turntiltscalar;
-		bool turnTiltReversed = sv_turntiltinvert;
+		double turnTiltScalar = tiltplusplus_turntiltscalar;
+		bool turnTiltReversed = tiltplusplus_turntiltinvert;
 
-		double underwaterTiltSpeed = sv_underwatertiltspeed;
-		double underwaterTiltAngle = sv_underwatertiltangle;
-		double underwaterTiltScalar = sv_underwatertiltscalar;
+		double underwaterTiltSpeed = tiltplusplus_underwatertiltspeed;
+		double underwaterTiltAngle = tiltplusplus_underwatertiltangle;
+		double underwaterTiltScalar = tiltplusplus_underwatertiltscalar;
 
 		// Shared variables we'll need later
 		double r, v;
