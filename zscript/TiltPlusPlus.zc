@@ -42,6 +42,11 @@ class TiltPlusPlusHandler : EventHandler
 	{
 		players[e.PlayerNumber].mo.A_GiveInventory("Z_TiltMe", 1);
 	}
+
+	override void PlayerRespawned(PlayerEvent e)
+	{
+		players[e.PlayerNumber].mo.A_GiveInventory("Z_TiltMe", 1);
+	}
 }
 
 class Z_TiltMe : CustomInventory
