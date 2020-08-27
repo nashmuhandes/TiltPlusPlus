@@ -170,7 +170,7 @@ class Z_TiltMe : CustomInventory
 		bool strafeTiltEnabled = GetCVar(p, 'tiltplusplus_strafetilt', cvStrafeTilt).GetBool();
 		double strafeTiltSpeed = GetCVar(p, 'tiltplusplus_strafetiltspeed', cvStrafeTiltSpeed).GetFloat();
 		double strafeTiltAngle = GetCVar(p, 'tiltplusplus_strafetiltangle', cvStrafeTiltAngle).GetFloat();
-		bool strafeTiltReversed = GetCVar(p, 'tiltplusplus_strafetiltinvert', cvStrafeTiltInvert).GetBool();
+		bool strafeTiltInvert = GetCVar(p, 'tiltplusplus_strafetiltinvert', cvStrafeTiltInvert).GetBool();
 
 		bool moveTiltEnabled = GetCVar(p, 'tiltplusplus_movetilt', cvMoveTilt).GetBool();
 		double moveTiltSpeed = GetCVar(p, 'tiltplusplus_movetiltspeed', cvMoveTiltSpeed).GetFloat();
@@ -179,7 +179,7 @@ class Z_TiltMe : CustomInventory
 
 		bool turnTiltEnabled = GetCVar(p, 'tiltplusplus_turntilt', cvTurnTilt).GetBool();
 		double turnTiltScalar = GetCVar(p, 'tiltplusplus_turntiltscalar', cvTurnTiltScalar).GetFloat();
-		bool turnTiltReversed = GetCVar(p, 'tiltplusplus_turntiltinvert', cvTurnTiltInvert).GetBool();
+		bool turnTiltInvert = GetCVar(p, 'tiltplusplus_turntiltinvert', cvTurnTiltInvert).GetBool();
 
 		bool underwaterTiltEnabled = GetCVar(p, 'tiltplusplus_underwatertilt', cvUnderwaterTilt).GetBool();
 		double underwaterTiltSpeed = GetCVar(p, 'tiltplusplus_underwatertiltspeed', cvUnderwaterTiltSpeed).GetFloat();
@@ -201,7 +201,7 @@ class Z_TiltMe : CustomInventory
 		if (strafeTiltEnabled && bIsOnFloor() && bIsPlayerAlive())
 		{
 			int dir;
-			if (strafeTiltReversed) dir = -1;
+			if (strafeTiltInvert) dir = -1;
 			else dir = 1;
 			strafeInput = strafeTiltSpeed * (Owner.GetPlayerInput(MODINPUT_SIDEMOVE) / 10240.0);
 			strafeInput *= strafeTiltAngle;
@@ -249,7 +249,7 @@ class Z_TiltMe : CustomInventory
 		if (turnTiltEnabled && bIsPlayerAlive())
 		{
 			// get player look input
-			double xinput = PlayerPawn(Owner).GetPlayerInput(MODINPUT_YAW) * (turnTiltReversed ? -1 : 1);
+			double xinput = PlayerPawn(Owner).GetPlayerInput(MODINPUT_YAW) * (turnTiltInvert ? -1 : 1);
 			xinput = turnTiltScalar * xinput / 32767.0;
 			r = xinput;
 		}
