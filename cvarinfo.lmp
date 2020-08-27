@@ -4,23 +4,23 @@
 server bool tiltplusplus_strafetilt = true;
 server bool tiltplusplus_strafetiltinvert = false;
 server float tiltplusplus_strafetiltspeed = 1.0;
-server float tiltplusplus_strafetiltangle = 0.5;
+server float tiltplusplus_strafetiltangle = 1.0;
 
 // Movement tilting
 server bool tiltplusplus_movetilt = false;
 server float tiltplusplus_movetiltspeed = 15.000;
-server float tiltplusplus_movetiltangle = 0.015;
+server float tiltplusplus_movetiltangle = 0.030;
 server float tiltplusplus_movetiltscalar = 0.2;
 
 // Turn tilting
 server bool tiltplusplus_turntilt = true;
-server float tiltplusplus_turntiltscalar = 1.5;
+server float tiltplusplus_turntiltscalar = 3.0;
 server bool tiltplusplus_turntiltinvert = false;
 
 // Underwater tilting
 server bool tiltplusplus_underwatertilt = true;
 server float tiltplusplus_underwatertiltspeed = 0.8;
-server float tiltplusplus_underwatertiltangle = 0.2;
+server float tiltplusplus_underwatertiltangle = 0.4;
 server float tiltplusplus_underwatertiltscalar = 1.0;
 
 // Death tilting
