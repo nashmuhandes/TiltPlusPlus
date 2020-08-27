@@ -15,9 +15,9 @@ OptionMenu "TiltPlusPlusMenu"
 	StaticText "$TILTPLUSPLUSMNU_STRAFETILT_TITLE", 1
 
 	TiltPlusPlusOption "$TILTPLUSPLUSMNU_ENABLED",					"$TILTPLUSPLUSMNU_HELPTEXT_STRAFETILT",				"tiltplusplus_strafetilt", "YesNo"
-	TiltPlusPlusOption "$TILTPLUSPLUSMNU_INVERT",					"$TILTPLUSPLUSMNU_HELPTEXT_STRAFETILT_INVERT",		"tiltplusplus_strafetiltinvert", "YesNo"
 	TiltPlusPlusSlider "$TILTPLUSPLUSMNU_SPEED",					"$TILTPLUSPLUSMNU_HELPTEXT_STRAFETILT_SPEED",		"tiltplusplus_strafetiltspeed", 0.1, 2.0, 0.01, 2
 	TiltPlusPlusSlider "$TILTPLUSPLUSMNU_ANGLE",					"$TILTPLUSPLUSMNU_HELPTEXT_STRAFETILT_ANGLE",		"tiltplusplus_strafetiltangle", 0.1, 1.0, 0.01, 2
+	TiltPlusPlusOption "$TILTPLUSPLUSMNU_INVERT",					"$TILTPLUSPLUSMNU_HELPTEXT_STRAFETILT_INVERT",		"tiltplusplus_strafetiltinvert", "YesNo"
 
 	StaticText ""
 	StaticText "$TILTPLUSPLUSMNU_MOVETILT_TITLE", 1
@@ -31,8 +31,8 @@ OptionMenu "TiltPlusPlusMenu"
 	StaticText "$TILTPLUSPLUSMNU_TURNTILT_TITLE", 1
 
 	TiltPlusPlusOption "$TILTPLUSPLUSMNU_ENABLED",					"$TILTPLUSPLUSMNU_HELPTEXT_TURNTILT",				"tiltplusplus_turntilt", "YesNo"
-	TiltPlusPlusOption "$TILTPLUSPLUSMNU_INVERT",					"$TILTPLUSPLUSMNU_HELPTEXT_TURNTILT_INVERT",		"tiltplusplus_turntiltinvert", "YesNo"
 	TiltPlusPlusSlider "$TILTPLUSPLUSMNU_SCALAR",					"$TILTPLUSPLUSMNU_HELPTEXT_TURNTILT_SCALAR",		"tiltplusplus_turntiltscalar", 0.0, 20.0, 0.1
+	TiltPlusPlusOption "$TILTPLUSPLUSMNU_INVERT",					"$TILTPLUSPLUSMNU_HELPTEXT_TURNTILT_INVERT",		"tiltplusplus_turntiltinvert", "YesNo"
 
 	StaticText ""
 	StaticText "$TILTPLUSPLUSMNU_UNDERWATERTILT_TITLE", 1
