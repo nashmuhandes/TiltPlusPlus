@@ -2,9 +2,9 @@
 
 // Strafe tilting
 user bool tiltplusplus_strafetilt = true;
-user bool tiltplusplus_strafetiltinvert = false;
 user float tiltplusplus_strafetiltspeed = 1.0;
 user float tiltplusplus_strafetiltangle = 1.0;
+user bool tiltplusplus_strafetiltinvert = false;
 
 // Movement tilting
 user bool tiltplusplus_movetilt = false;
