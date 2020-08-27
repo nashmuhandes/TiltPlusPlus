@@ -1,27 +1,27 @@
 // Tilt++ CVars
 
 // Strafe tilting
-server bool tiltplusplus_strafetilt = true;
-server bool tiltplusplus_strafetiltinvert = false;
-server float tiltplusplus_strafetiltspeed = 1.0;
-server float tiltplusplus_strafetiltangle = 1.0;
+user bool tiltplusplus_strafetilt = true;
+user bool tiltplusplus_strafetiltinvert = false;
+user float tiltplusplus_strafetiltspeed = 1.0;
+user float tiltplusplus_strafetiltangle = 1.0;
 
 // Movement tilting
-server bool tiltplusplus_movetilt = false;
-server float tiltplusplus_movetiltspeed = 15.000;
-server float tiltplusplus_movetiltangle = 0.030;
-server float tiltplusplus_movetiltscalar = 0.2;
+user bool tiltplusplus_movetilt = false;
+user float tiltplusplus_movetiltspeed = 15.000;
+user float tiltplusplus_movetiltangle = 0.030;
+user float tiltplusplus_movetiltscalar = 0.2;
 
 // Turn tilting
-server bool tiltplusplus_turntilt = true;
-server float tiltplusplus_turntiltscalar = 3.0;
-server bool tiltplusplus_turntiltinvert = false;
+user bool tiltplusplus_turntilt = true;
+user float tiltplusplus_turntiltscalar = 3.0;
+user bool tiltplusplus_turntiltinvert = false;
 
 // Underwater tilting
-server bool tiltplusplus_underwatertilt = true;
-server float tiltplusplus_underwatertiltspeed = 0.8;
-server float tiltplusplus_underwatertiltangle = 0.4;
-server float tiltplusplus_underwatertiltscalar = 1.0;
+user bool tiltplusplus_underwatertilt = true;
+user float tiltplusplus_underwatertiltspeed = 0.8;
+user float tiltplusplus_underwatertiltangle = 0.4;
+user float tiltplusplus_underwatertiltscalar = 1.0;
 
 // Death tilting
-server bool tiltplusplus_deathtilt = true;
+user bool tiltplusplus_deathtilt = true;

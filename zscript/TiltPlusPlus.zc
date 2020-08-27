@@ -57,6 +57,23 @@ class Z_TiltMe : CustomInventory
 	double deathTiltAngle;
 	double lastRoll;
 
+	transient CVar cvStrafeTilt;
+	transient CVar cvStrafeTiltInvert;
+	transient CVar cvStrafeTiltSpeed;
+	transient CVar cvStrafeTiltAngle;
+	transient CVar cvMoveTilt;
+	transient CVar cvMoveTiltSpeed;
+	transient CVar cvMoveTiltAngle;
+	transient CVar cvMoveTiltScalar;
+	transient CVar cvTurnTilt;
+	transient CVar cvTurnTiltScalar;
+	transient CVar cvTurnTiltInvert;
+	transient CVar cvUnderwaterTilt;
+	transient CVar cvUnderwaterTiltSpeed;
+	transient CVar cvUnderwaterTiltAngle;
+	transient CVar cvUnderwaterTiltScalar;
+	transient CVar cvDeathTilt;
+
 	//===========================================================================
 	//
 	//
@@ -125,29 +142,47 @@ class Z_TiltMe : CustomInventory
 	//
 	//===========================================================================
 
+	CVar GetCVar(PlayerInfo p, Name cvn, CVar cv)
+	{
+		if (!cv)
+		{
+			cv = CVar.GetCVar(cvn, p);
+		}
+		return cv;
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
 	void Tilt_CalcViewRoll(void)
 	{
+		PlayerInfo p = Owner.player;
+		if (!p) return;
+
 		// CVARS ///////////////////////////////////////////////////////////////
-		bool strafeTiltEnabled = tiltplusplus_strafetilt;
-		bool moveTiltEnabled = tiltplusplus_movetilt;
-		bool turnTiltEnabled = tiltplusplus_turntilt;
-		bool underwaterTiltEnabled = tiltplusplus_underwatertilt;
-		bool deathTiltEnabled = tiltplusplus_deathtilt;
+		bool strafeTiltEnabled = GetCVar(p, 'tiltplusplus_strafetilt', cvStrafeTilt).GetBool();
+		bool moveTiltEnabled = GetCVar(p, 'tiltplusplus_movetilt', cvMoveTilt).GetBool();
+		bool turnTiltEnabled = GetCVar(p, 'tiltplusplus_turntilt', cvTurnTilt).GetBool();
+		bool underwaterTiltEnabled = GetCVar(p, 'tiltplusplus_underwatertilt', cvUnderwaterTilt).GetBool();
+		bool deathTiltEnabled = GetCVar(p, 'tiltplusplus_deathtilt', cvDeathTilt).GetBool();
 
-		double strafeTiltSpeed = tiltplusplus_strafetiltspeed;
-		double strafeTiltAngle = tiltplusplus_strafetiltangle;
-		bool strafeTiltReversed = tiltplusplus_strafetiltinvert;
+		double strafeTiltSpeed = GetCVar(p, 'tiltplusplus_strafetiltspeed', cvStrafeTiltSpeed).GetFloat();
+		double strafeTiltAngle = GetCVar(p, 'tiltplusplus_strafetiltangle', cvStrafeTiltAngle).GetFloat();
+		bool strafeTiltReversed = GetCVar(p, 'tiltplusplus_strafetiltinvert', cvStrafeTiltInvert).GetBool();
 
-		double moveTiltScalar = tiltplusplus_movetiltscalar;
-		double moveTiltAngle = tiltplusplus_movetiltangle;
-		double moveTiltSpeed = tiltplusplus_movetiltspeed;
+		double moveTiltScalar = GetCVar(p, 'tiltplusplus_movetiltscalar', cvMoveTiltScalar).GetFloat();
+		double moveTiltAngle = GetCVar(p, 'tiltplusplus_movetiltangle', cvMoveTiltAngle).GetFloat();
+		double moveTiltSpeed = GetCVar(p, 'tiltplusplus_movetiltspeed', cvMoveTiltSpeed).GetFloat();
 
-		double turnTiltScalar = tiltplusplus_turntiltscalar;
-		bool turnTiltReversed = tiltplusplus_turntiltinvert;
+		double turnTiltScalar = GetCVar(p, 'tiltplusplus_turntiltscalar', cvTurnTiltScalar).GetFloat();
+		bool turnTiltReversed = GetCVar(p, 'tiltplusplus_turntiltinvert', cvTurnTiltInvert).GetBool();
 
-		double underwaterTiltSpeed = tiltplusplus_underwatertiltspeed;
-		double underwaterTiltAngle = tiltplusplus_underwatertiltangle;
-		double underwaterTiltScalar = tiltplusplus_underwatertiltscalar;
+		double underwaterTiltSpeed = GetCVar(p, 'tiltplusplus_underwatertiltspeed', cvUnderwaterTiltSpeed).GetFloat();
+		double underwaterTiltAngle = GetCVar(p, 'tiltplusplus_underwatertiltangle', cvUnderwaterTiltAngle).GetFloat();
+		double underwaterTiltScalar = GetCVar(p, 'tiltplusplus_underwatertiltscalar', cvUnderwaterTiltScalar).GetFloat();
 
 		// Shared variables we'll need later
 		double r, v;
