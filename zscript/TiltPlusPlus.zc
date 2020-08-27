@@ -373,7 +373,7 @@ class Z_TiltMe : CustomInventory
 
 		// Apply the sum of all rolling routines
 		// (including after stabilization)
-		Owner.A_SetViewRoll((Owner.Roll + lastRoll) * 0.5, SPF_INTERPOLATE);
+		Owner.A_SetViewRoll((Owner.ViewRoll + lastRoll) * 0.5, SPF_INTERPOLATE);
 	}
 
 	//===========================================================================
