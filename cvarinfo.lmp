@@ -3,24 +3,24 @@
 // Strafe tilting
 user bool tiltplusplus_strafetilt = true;
 user float tiltplusplus_strafetiltspeed = 1.0;
-user float tiltplusplus_strafetiltangle = 1.0;
+user float tiltplusplus_strafetiltangle = 0.5;
 user bool tiltplusplus_strafetiltinvert = false;
 
 // Movement tilting
 user bool tiltplusplus_movetilt = false;
 user float tiltplusplus_movetiltspeed = 15.000;
-user float tiltplusplus_movetiltangle = 0.030;
+user float tiltplusplus_movetiltangle = 0.015;
 user float tiltplusplus_movetiltscalar = 0.2;
 
 // Turn tilting
 user bool tiltplusplus_turntilt = true;
-user float tiltplusplus_turntiltscalar = 3.0;
+user float tiltplusplus_turntiltscalar = 1.5;
 user bool tiltplusplus_turntiltinvert = false;
 
 // Underwater tilting
 user bool tiltplusplus_underwatertilt = true;
 user float tiltplusplus_underwatertiltspeed = 0.8;
-user float tiltplusplus_underwatertiltangle = 0.4;
+user float tiltplusplus_underwatertiltangle = 0.2;
 user float tiltplusplus_underwatertiltscalar = 1.0;
 
 // Death tilting
