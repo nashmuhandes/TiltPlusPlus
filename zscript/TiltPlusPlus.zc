@@ -93,6 +93,9 @@ class Z_TiltMe : CustomInventory
 	double moveTiltOsc, underwaterTiltOsc;
 	double deathTiltOsc;
 	double deathTiltAngle;
+
+	double lastAngle;
+	double lastPitch;
 	double lastRoll;
 
 	transient CVar cvStrafeTilt;
@@ -141,6 +144,7 @@ class Z_TiltMe : CustomInventory
 		if (Owner && Owner is "PlayerPawn")
 		{
 			Tilt_CalcViewRoll();
+			Tilt_UpdateViewAngles();
 		}
 
 		Super.Tick();
@@ -198,6 +202,22 @@ class Z_TiltMe : CustomInventory
 	//
 	//
 	//===========================================================================
+
+	void Tilt_UpdateViewAngles(void)
+	{
+		double threshold = 0.000001;
+		double factor = 0.75;
+
+		// stabilize view angles
+		if (abs(lastAngle) > threshold) lastAngle *= factor;
+		if (abs(lastPitch) > threshold) lastPitch *= factor;
+		if (abs(lastRoll) > threshold) lastRoll *= factor;
+
+		// apply all view angles
+		Owner.A_SetViewAngle((Owner.ViewAngle + lastAngle), SPF_INTERPOLATE);
+		Owner.A_SetViewPitch((Owner.ViewPitch + lastPitch), SPF_INTERPOLATE);
+		Owner.A_SetViewRoll((Owner.ViewRoll + lastRoll) * 0.5, SPF_INTERPOLATE);
+	}
 
 	void Tilt_CalcViewRoll(void)
 	{
@@ -358,22 +378,6 @@ class Z_TiltMe : CustomInventory
 
 		// tilt!
 		lastRoll += r;
-
-		//===========================================================================
-		//
-		// Tilt Post Processing
-		//
-		//===========================================================================
-
-		if (abs(lastRoll) > 0.000001)
-		{
-			// Stabilize tilt
-			lastRoll *= 0.75;
-		}
-
-		// Apply the sum of all rolling routines
-		// (including after stabilization)
-		Owner.A_SetViewRoll((Owner.ViewRoll + lastRoll) * 0.5, SPF_INTERPOLATE);
 	}
 
 	//===========================================================================
