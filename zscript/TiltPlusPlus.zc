@@ -207,6 +207,7 @@ class Z_TiltMe : CustomInventory
 	{
 		double threshold = 0.000001;
 		double factor = 0.75;
+		double resetFactor = 0.5;
 
 		// stabilize view angles
 		if (abs(lastAngle) > threshold) lastAngle *= factor;
@@ -214,9 +215,9 @@ class Z_TiltMe : CustomInventory
 		if (abs(lastRoll) > threshold) lastRoll *= factor;
 
 		// apply all view angles
-		Owner.A_SetViewAngle((Owner.ViewAngle + lastAngle), SPF_INTERPOLATE);
-		Owner.A_SetViewPitch((Owner.ViewPitch + lastPitch), SPF_INTERPOLATE);
-		Owner.A_SetViewRoll((Owner.ViewRoll + lastRoll) * 0.5, SPF_INTERPOLATE);
+		Owner.A_SetViewAngle((Owner.ViewAngle + lastAngle) * resetFactor, SPF_INTERPOLATE);
+		Owner.A_SetViewPitch((Owner.ViewPitch + lastPitch) * resetFactor, SPF_INTERPOLATE);
+		Owner.A_SetViewRoll((Owner.ViewRoll + lastRoll) * resetFactor, SPF_INTERPOLATE);
 	}
 
 	void Tilt_CalcViewRoll(void)
