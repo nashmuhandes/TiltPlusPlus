@@ -44,4 +44,7 @@ OptionMenu "TiltPlusPlusMenu"
 	StaticText ""
 	StaticText "$TILTPLUSPLUSMNU_DEATHTILT_TITLE", 1
 	TiltPlusPlusOption "$TILTPLUSPLUSMNU_ENABLED",					"$TILTPLUSPLUSMNU_HELPTEXT_DEATHTILT",				"tiltplusplus_deathtilt", "YesNo"
+
+	StaticText""
+	SafeCommand "$TILTPLUSPLUSMNU_MISC_RESETTODEFAULT",				"netevent EV_ResetToDefault"
 }

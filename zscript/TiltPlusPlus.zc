@@ -85,6 +85,58 @@ class TiltPlusPlusHandler : EventHandler
 	{
 		players[e.PlayerNumber].mo.A_GiveInventory("Z_TiltMe", 1);
 	}
+
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		if (e.Name == 'EV_ResetToDefault')
+		{
+			ResetToDefault();
+		}
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	static void ResetToDefault(void)
+	{
+		CVar cv;
+
+		cv = CVar.FindCVar('tiltplusplus_strafetilt');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_strafetiltspeed');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_strafetiltangle');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_strafetiltinvert');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_movetilt');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_movetiltspeed');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_movetiltangle');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_movetiltscalar');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_turntilt');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_turntiltscalar');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_turntiltinvert');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_underwatertilt');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_underwatertiltspeed');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_underwatertiltangle');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_underwatertiltscalar');
+		if (cv) cv.ResetToDefault();
+		cv = CVar.FindCVar('tiltplusplus_deathtilt');
+		if (cv) cv.ResetToDefault();
+	}
 }
 
 class Z_TiltMe : CustomInventory
