@@ -143,8 +143,8 @@ class Z_TiltMe : CustomInventory
 	{
 		if (Owner && Owner is "PlayerPawn")
 		{
-			Tilt_CalcViewRoll();
-			Tilt_UpdateViewAngles();
+			DoViewTilt();
+			UpdateViewAngles();
 		}
 
 		Super.Tick();
@@ -203,24 +203,7 @@ class Z_TiltMe : CustomInventory
 	//
 	//===========================================================================
 
-	void Tilt_UpdateViewAngles(void)
-	{
-		double threshold = 0.000001;
-		double factor = 0.75;
-		double resetFactor = 0.5;
-
-		// stabilize view angles
-		if (abs(lastAngle) > threshold) lastAngle *= factor;
-		if (abs(lastPitch) > threshold) lastPitch *= factor;
-		if (abs(lastRoll) > threshold) lastRoll *= factor;
-
-		// apply all view angles
-		Owner.A_SetViewAngle((Owner.ViewAngle + lastAngle) * resetFactor, SPF_INTERPOLATE);
-		Owner.A_SetViewPitch((Owner.ViewPitch + lastPitch) * resetFactor, SPF_INTERPOLATE);
-		Owner.A_SetViewRoll((Owner.ViewRoll + lastRoll) * resetFactor, SPF_INTERPOLATE);
-	}
-
-	void Tilt_CalcViewRoll(void)
+	void DoViewTilt(void)
 	{
 		PlayerInfo p = Owner.player;
 		if (!p) return;
@@ -379,6 +362,17 @@ class Z_TiltMe : CustomInventory
 
 		// tilt!
 		lastRoll += r;
+	}
+
+	void UpdateViewAngles(void)
+	{
+		Owner.A_SetViewAngle((Owner.ViewAngle + lastAngle) * 0.5, SPF_INTERPOLATE);
+		Owner.A_SetViewPitch((Owner.ViewPitch + lastPitch) * 0.5, SPF_INTERPOLATE);
+		Owner.A_SetViewRoll((Owner.ViewRoll + lastRoll) * 0.5, SPF_INTERPOLATE);
+
+		lastAngle *= 0.5;
+		lastPitch *= 0.5;
+		lastRoll *= 0.5;
 	}
 
 	//===========================================================================
