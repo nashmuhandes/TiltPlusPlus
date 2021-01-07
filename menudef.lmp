@@ -5,6 +5,13 @@ AddOptionMenu "OptionsMenu"
 	Submenu "$OPTMNU_TILTPLUSPLUS", "TiltPlusPlusMenu"
 }
 
+AddOptionMenu "OptionsMenuSimple"
+{
+	StaticText ""
+	StaticText "Tilt++ v1.7"
+	Submenu "$OPTMNU_TILTPLUSPLUS", "TiltPlusPlusMenu"
+}
+
 OptionMenu "TiltPlusPlusMenu"
 {
 	Class "TiltPlusPlusMenu"
