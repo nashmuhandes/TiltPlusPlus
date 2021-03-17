@@ -127,11 +127,11 @@ class OptionMenuItemTiltPlusPlusSafeCommand : OptionMenuItemSafeCommand
 
 //===========================================================================
 //
-// TiltPlusPlus Menu
+// TiltPlusPlusOptionMenu
 //
 //===========================================================================
 
-class TiltPlusPlusMenu : OptionMenu
+class TiltPlusPlusOptionMenu : OptionMenu
 {
 	const START_TIME = 75;
 	const END_TIME = 120;

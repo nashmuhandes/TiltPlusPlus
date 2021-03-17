@@ -2,19 +2,19 @@ AddOptionMenu "OptionsMenu"
 {
 	StaticText ""
 	StaticText "Tilt++ v1.7"
-	Submenu "$OPTMNU_TILTPLUSPLUS", "TiltPlusPlusMenu"
+	Submenu "$OPTMNU_TILTPLUSPLUS", "TiltPlusPlusOptionMenu"
 }
 
 AddOptionMenu "OptionsMenuSimple"
 {
 	StaticText ""
 	StaticText "Tilt++ v1.7"
-	Submenu "$OPTMNU_TILTPLUSPLUS", "TiltPlusPlusMenu"
+	Submenu "$OPTMNU_TILTPLUSPLUS", "TiltPlusPlusOptionMenu"
 }
 
-OptionMenu "TiltPlusPlusMenu"
+OptionMenu "TiltPlusPlusOptionMenu"
 {
-	Class "TiltPlusPlusMenu"
+	Class "TiltPlusPlusOptionMenu"
 	Title "$TILTPLUSPLUSMNU_TITLE"
 	Position -32
 
