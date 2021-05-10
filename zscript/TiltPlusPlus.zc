@@ -191,15 +191,13 @@ class Z_TiltMe : CustomInventory
 	//
 	//===========================================================================
 
-	override void Tick(void)
+	override void DoEffect(void)
 	{
 		if (Owner && Owner is "PlayerPawn")
 		{
 			DoViewTilt();
 			UpdateViewAngles();
 		}
-
-		Super.Tick();
 	}
 
 	//===========================================================================
