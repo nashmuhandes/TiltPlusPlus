@@ -281,7 +281,7 @@ class Z_TiltMe : CustomInventory
 		bool deathTiltEnabled = GetCVar(p, 'tiltplusplus_deathtilt', cvDeathTilt).GetBool();
 
 		// Shared variables we'll need later
-		double r, v;
+		double r = 0.0, v = 0.0;
 
 		//===========================================================================
 		//
@@ -298,10 +298,10 @@ class Z_TiltMe : CustomInventory
 			strafeInput = strafeTiltSpeed * (Owner.GetPlayerInput(MODINPUT_SIDEMOVE) / 10240.0);
 			strafeInput *= strafeTiltAngle;
 			strafeInput *= dir;
-		}
 
-		// tilt!
-		lastRoll += strafeInput;
+			// tilt!
+			lastRoll += strafeInput;
+		}
 
 		//===========================================================================
 		//
@@ -327,10 +327,10 @@ class Z_TiltMe : CustomInventory
 			r = Sin(moveTiltOsc);
 			r *= moveTiltAngle;
 			r *= v;
-		}
 
-		// tilt!
-		lastRoll += r;
+			// tilt!
+			lastRoll += r;
+		}
 
 		//===========================================================================
 		//
@@ -344,10 +344,10 @@ class Z_TiltMe : CustomInventory
 			double xinput = PlayerPawn(Owner).GetPlayerInput(MODINPUT_YAW) * (turnTiltInvert ? -1 : 1);
 			xinput = turnTiltScalar * xinput / 32767.0;
 			r = xinput;
-		}
 
-		// tilt!
-		lastRoll += r;
+			// tilt!
+			lastRoll += r;
+		}
 
 		//===========================================================================
 		//
@@ -373,10 +373,10 @@ class Z_TiltMe : CustomInventory
 			r = Sin(underwaterTiltOsc);
 			r *= underwaterTiltAngle;
 			r *= v;
-		}
 
-		// tilt!
-		lastRoll += r;
+			// tilt!
+			lastRoll += r;
+		}
 
 		//===========================================================================
 		//
@@ -403,15 +403,15 @@ class Z_TiltMe : CustomInventory
 
 			r = Sin(deathTiltOsc);
 			r *= deathTiltAngle;
+
+			// tilt!
+			lastRoll += r;
 		}
 		else
 		{
 			deathTiltOsc = 0;
 			deathTiltAngle = 0;
 		}
-
-		// tilt!
-		lastRoll += r;
 	}
 
 	void UpdateViewAngles(void)
