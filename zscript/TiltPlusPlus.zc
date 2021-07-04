@@ -206,12 +206,12 @@ class Z_TiltMe : CustomInventory
 	//
 	//===========================================================================
 
-	bool bIsOnFloor(void)
+	bool IsOnFloor(void)
 	{
 		return (Owner.Pos.Z == Owner.FloorZ) || (Owner.bOnMObj);
 	}
 
-	bool bIsCrouching(void)
+	bool IsCrouching(void)
 	{
 		return Owner.GetCameraHeight() <= (Owner.player.mo.ViewHeight / 2);
 	}
@@ -225,11 +225,6 @@ class Z_TiltMe : CustomInventory
 	int GetWaterLevel(void)
 	{
 		return Owner.WaterLevel;
-	}
-
-	bool bIsPlayerAlive(void)
-	{
-		return Owner.Health > 0;
 	}
 
 	//===========================================================================
@@ -290,7 +285,7 @@ class Z_TiltMe : CustomInventory
 		//===========================================================================
 
 		// normalized strafe input
-		if (strafeTiltEnabled && bIsOnFloor() && bIsPlayerAlive())
+		if (strafeTiltEnabled && IsOnFloor() && Owner.Health > 0)
 		{
 			int dir;
 			if (strafeTiltInvert) dir = -1;
@@ -309,7 +304,7 @@ class Z_TiltMe : CustomInventory
 		//
 		//===========================================================================
 
-		if (moveTiltEnabled && bIsOnFloor() && bIsPlayerAlive())
+		if (moveTiltEnabled && IsOnFloor() && Owner.Health > 0)
 		{
 			// get player's velocity
 			v = GetVelocity() * moveTiltScalar;
@@ -338,7 +333,7 @@ class Z_TiltMe : CustomInventory
 		//
 		//===========================================================================
 
-		if (turnTiltEnabled && bIsPlayerAlive())
+		if (turnTiltEnabled && Owner.Health > 0)
 		{
 			// get player look input
 			double xinput = PlayerPawn(Owner).GetPlayerInput(MODINPUT_YAW) * (turnTiltInvert ? -1 : 1);
@@ -384,7 +379,7 @@ class Z_TiltMe : CustomInventory
 		//
 		//===========================================================================
 
-		if (!bIsPlayerAlive() && deathTiltEnabled)
+		if (Owner.Health <= 0 && deathTiltEnabled)
 		{
 			double deathTiltSpeed = 1.0;
 
