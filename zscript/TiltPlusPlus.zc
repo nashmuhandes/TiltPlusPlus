@@ -218,7 +218,9 @@ class Z_TiltMe : CustomInventory
 
 	double GetVelocity(bool xyOnly = false)
 	{
-		if (xyOnly) return Owner.Vel.XY.Length();
+		if (xyOnly)
+			return Owner.Vel.XY.Length();
+
 		return Owner.Vel.Length();
 	}
 
@@ -251,7 +253,8 @@ class Z_TiltMe : CustomInventory
 	void DoViewTilt(void)
 	{
 		PlayerInfo p = Owner.player;
-		if (!p) return;
+		if (!p)
+			return;
 
 		// CVARS ///////////////////////////////////////////////////////////////
 		bool strafeTiltEnabled = GetCVar(p, 'tiltplusplus_strafetilt', cvStrafeTilt).GetBool();
@@ -288,8 +291,10 @@ class Z_TiltMe : CustomInventory
 		if (strafeTiltEnabled && IsOnFloor() && Owner.Health > 0)
 		{
 			int dir;
-			if (strafeTiltInvert) dir = -1;
-			else dir = 1;
+			if (strafeTiltInvert)
+				dir = -1;
+			else
+				dir = 1;
 			strafeInput = strafeTiltSpeed * (Owner.GetPlayerInput(MODINPUT_SIDEMOVE) / 10240.0);
 			strafeInput *= strafeTiltAngle;
 			strafeInput *= dir;
