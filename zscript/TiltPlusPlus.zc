@@ -90,6 +90,7 @@ class TiltPlusPlusHandler : EventHandler
 	{
 		if (e.Name == 'EV_ResetToDefault')
 		{
+			// FIX ME: This doesn't work if you're not in-game LOL
 			ResetToDefault();
 		}
 	}
@@ -104,38 +105,34 @@ class TiltPlusPlusHandler : EventHandler
 	{
 		CVar cv;
 
-		cv = CVar.FindCVar('tiltplusplus_strafetilt');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_strafetiltspeed');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_strafetiltangle');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_strafetiltinvert');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_movetilt');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_movetiltspeed');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_movetiltangle');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_movetiltscalar');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_turntilt');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_turntiltscalar');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_turntiltinvert');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_underwatertilt');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_underwatertiltspeed');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_underwatertiltangle');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_underwatertiltscalar');
-		if (cv) cv.ResetToDefault();
-		cv = CVar.FindCVar('tiltplusplus_deathtilt');
-		if (cv) cv.ResetToDefault();
+		static const Name cvars[] =
+		{
+			'tiltplusplus_strafetilt',
+			'tiltplusplus_strafetiltspeed',
+			'tiltplusplus_strafetiltangle',
+			'tiltplusplus_strafetiltinvert',
+			'tiltplusplus_movetilt',
+			'tiltplusplus_movetiltspeed',
+			'tiltplusplus_movetiltangle',
+			'tiltplusplus_movetiltscalar',
+			'tiltplusplus_turntilt',
+			'tiltplusplus_turntiltscalar',
+			'tiltplusplus_turntiltinvert',
+			'tiltplusplus_underwatertilt',
+			'tiltplusplus_underwatertiltspeed',
+			'tiltplusplus_underwatertiltangle',
+			'tiltplusplus_underwatertiltscalar',
+			'tiltplusplus_deathtilt'
+		};
+
+		for (int i = 0; i < cvars.Size(); i++)
+		{
+			cv = CVar.FindCVar(cvars[i]);
+			if (cv)
+			{
+				cv.ResetToDefault();
+			}
+		}
 	}
 }
 
