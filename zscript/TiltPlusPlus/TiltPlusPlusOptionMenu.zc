@@ -165,6 +165,8 @@ class TiltPlusPlusOptionMenu : OptionMenu
 	{
 		Super.Init(parent, desc);
 
+		optFnt = OptionFont();
+
 		mDefaultPosition = mDesc.mPosition;
 		prevSelected = -1;
 	}
@@ -192,7 +194,6 @@ class TiltPlusPlusOptionMenu : OptionMenu
 			}
 		}
 
-		optFnt = OptionFont();
 		fHeight = optFnt.GetHeight() * CleanYFac_1;
 		padding = fHeight << 1;
 
